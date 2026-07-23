@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default function LoginView() {
   const [email, setEmail] = useState('');
@@ -36,18 +36,22 @@ export default function LoginView() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="min-h-screen flex-1 flex items-center justify-center px-4 py-12 bg-slate-50 dark:bg-[#071205]">
-        <article className="w-full max-w-[460px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
-          <header className="pt-10 px-8 text-center">
-            <h1 className="text-[#111b0e] dark:text-white text-3xl font-black">Bienvenido</h1>
-            <p className="text-slate-500 dark:text-slate-400 text-base mt-2">
-              Gestiona tu producción en <span className="text-emerald-600 font-bold">AVISENA COL</span>.
-            </p>
-          </header>
+  <div className="h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-[#071205]">
+    <Header />
 
-          <form onSubmit={handleSubmit} className="p-8 space-y-5">
+    <main className="flex-1 flex items-center justify-center px-4 py-4 overflow-hidden">
+      <article className="w-full max-w-[360px] sm:max-w-[420px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
+        <header className="pt-8 px-6 text-center">
+          <h1 className="text-[#111b0e] dark:text-white text-2xl sm:text-3xl font-black">
+            Bienvenido
+          </h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-2">
+            Gestiona tu producción en{" "}
+            <span className="text-emerald-600 font-bold">AVISENA COL</span>.
+          </p>
+        </header>
+
+        <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-4 sm:space-y-5">
             {errors.general && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm font-bold" role="alert">
                 {errors.general}
@@ -85,7 +89,6 @@ export default function LoginView() {
                   onClick={() => setShowPassword((current) => !current)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary text-xl"
                 >
-                  {showPassword ? '🙈' : '👁'}
                 </button>
               </aside>
               {errors.password && <span className="text-sm text-red-600">{errors.password}</span>}
@@ -94,33 +97,50 @@ export default function LoginView() {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center justify-center w-full bg-primary hover:bg-[#3dbd14] text-black font-black py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-2 uppercase tracking-wide disabled:opacity-70"
+              className="flex items-center justify-center w-full bg-[#3dbd14] text-black font-black py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-2 uppercase tracking-wide disabled:opacity-70"
             >
               {loading ? 'Cargando...' : 'Iniciar Sesión'}
             </button>
+            
+              <section class="relative flex items-center py-4">
+                    <section class="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
+                    <span class="flex-shrink mx-4 text-slate-400 text-xs font-medium uppercase tracking-wider">continuar con</span>
+                    <section class="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
+              </section>
 
             <section className="grid grid-cols-2 gap-4">
+              
               <button
-                type="button"
-                className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-background-dark transition-all font-bold text-sm"
-              >
-                <span className="w-4 h-4 inline-flex items-center justify-center">G</span>
-                Google
+                    type="button"
+                    className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors">
+                  <img
+                      alt="Google"
+                      className="w-5 h-5"
+                      src="/assets/images/google.png"
+                  />
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                      Google
+                  </span>
               </button>
 
-              <button
-                type="button"
-                className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-background-dark transition-all font-bold text-sm"
-              >
-                <span className="w-4 h-4 inline-flex items-center justify-center">F</span>
-                Facebook
-              </button>
+                <button
+                  type="button"
+                  className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors">
+                  <img
+                    alt="Facebook"
+                    className="w-5 h-5"
+                    src="/assets/images/facebook.png"
+                  />
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Facebook
+                  </span>
+                </button>
             </section>
           </form>
         </article>
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
