@@ -36,12 +36,12 @@ export default function LoginView() {
   };
 
   return (
-  <div className="h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-[#071205]">
-    <Header />
+    <div className="h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-[#071205]">
+      <Header />
 
-    <main className="flex-1 flex items-center justify-center px-4 py-4 overflow-hidden">
-      <article className="w-full max-w-[360px] sm:max-w-[420px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
-        <header className="pt-8 px-6 text-center">
+      <main className="flex-1 flex items-center justify-center px-4 py-2 overflow-hidden">
+        <article className="w-full max-w-[360px] sm:max-w-[420px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
+        <header className="pt-4 px-6 text-center">
           <h1 className="text-[#111b0e] dark:text-white text-2xl sm:text-3xl font-black">
             Bienvenido
           </h1>
@@ -51,7 +51,7 @@ export default function LoginView() {
           </p>
         </header>
 
-        <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-4 sm:space-y-5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3 sm:space-y-4">
             {errors.general && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm font-bold" role="alert">
                 {errors.general}
@@ -98,12 +98,12 @@ export default function LoginView() {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center justify-center w-full bg-[#3dbd14] text-black font-black py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-2 uppercase tracking-wide disabled:opacity-70"
+              className="flex items-center justify-center w-full bg-[#3dbd14] text-black font-black py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-1 uppercase tracking-wide disabled:opacity-70"
             >
               {loading ? 'Cargando...' : 'Iniciar Sesión'}
             </button>
             
-              <div className="relative flex items-center py-4">
+              <div className="relative flex items-center py-2">
               <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
               <span className="flex-shrink mx-4 text-slate-400 text-xs font-medium uppercase tracking-wider">continuar con</span>
               <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
@@ -139,6 +139,9 @@ export default function LoginView() {
                   </span>
                 </button>
             </section>
+            <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+              ¿Olvidaste tu contraseña?
+            </p>
           </form>
         </article>
       </main>
