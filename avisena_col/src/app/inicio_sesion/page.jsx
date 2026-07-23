@@ -89,6 +89,7 @@ export default function LoginView() {
                   onClick={() => setShowPassword((current) => !current)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary text-xl"
                 >
+                  {showPassword ? '🙈' : '👁'}
                 </button>
               </aside>
               {errors.password && <span className="text-sm text-red-600">{errors.password}</span>}
@@ -123,9 +124,10 @@ export default function LoginView() {
                   </span>
               </button>
 
-                <button
+              <button
                   type="button"
-                  className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors">
+                  className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors"
+                >
                   <img
                     alt="Facebook"
                     className="w-5 h-5"
