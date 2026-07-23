@@ -89,7 +89,7 @@ export default function LoginView() {
                   onClick={() => setShowPassword((current) => !current)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary text-xl"
                 >
-                  {showPassword ? '🙈' : '👁'}
+                  {showPassword ? '' : ''}
                 </button>
               </aside>
               {errors.password && <span className="text-sm text-red-600">{errors.password}</span>}
@@ -103,36 +103,37 @@ export default function LoginView() {
               {loading ? 'Cargando...' : 'Iniciar Sesión'}
             </button>
             
-              <section class="relative flex items-center py-4">
-                    <section class="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
-                    <span class="flex-shrink mx-4 text-slate-400 text-xs font-medium uppercase tracking-wider">continuar con</span>
-                    <section class="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
-              </section>
+              <div className="relative flex items-center py-4">
+              <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
+              <span className="flex-shrink mx-4 text-slate-400 text-xs font-medium uppercase tracking-wider">continuar con</span>
+              <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
+            </div>
 
             <section className="grid grid-cols-2 gap-4">
               
               <button
-                    type="button"
-                    className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors">
-                  <img
-                      alt="Google"
-                      className="w-5 h-5"
-                      src="/assets/images/google.png"
-                  />
+                type="button"
+                className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors"
+              >
+                <img
+                  alt="Google"
+                  className="w-5 h-5"
+                  src="/assets/images/google.png"
+                />
                   <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                       Google
                   </span>
               </button>
 
               <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors"
-                >
-                  <img
-                    alt="Facebook"
-                    className="w-5 h-5"
-                    src="/assets/images/facebook.png"
-                  />
+                type="button"
+                className="flex items-center justify-center gap-2 border border-[#d5e7d0] dark:border-emerald-900/50 py-2.5 rounded-lg hover:bg-slate-50 dark:hover:bg-background-dark transition-colors"
+              >
+                <img
+                  alt="Facebook"
+                  className="w-5 h-5"
+                  src="/assets/images/facebook.png"
+                />
                   <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                     Facebook
                   </span>
