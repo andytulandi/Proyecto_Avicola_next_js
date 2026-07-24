@@ -36,26 +36,28 @@ export default function LoginView() {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-[#071205]">
-      <Header />
+    <section className="min-h-screen h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-[#071205]">
+      <section className="h-[10vh] min-h-[64px] flex-shrink-0">
+        <Header />
+      </section>
 
-      <main className="flex-1 flex items-center justify-center px-4 py-2 overflow-hidden">
-        <article className="w-full max-w-[360px] sm:max-w-[420px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
-        <header className="pt-4 px-6 text-center">
+      <main className="flex-1 min-h-0 flex items-center justify-center px-3 sm:px-4 py-2 overflow-hidden">
+        <article className="w-full max-w-[360px] sm:max-w-[420px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden flex flex-col max-h-[calc(100vh-20vh)] sm:max-h-[calc(100vh-20vh)]">
+        <header className="pt-3 sm:pt-4 px-4 sm:px-6 text-center">
           <h1 className="text-[#111b0e] dark:text-white text-2xl sm:text-3xl font-black">
             Bienvenido
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-2">
-            Gestiona tu producción en{" "}
+            Gestiona las actividades de tu unidad avicola en {" "}
             <span className="text-emerald-600 font-bold">AVISENA COL</span>.
           </p>
         </header>
 
-        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+        <form onSubmit={handleSubmit} className="p-3 sm:p-6 space-y-2 sm:space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
             {errors.general && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm font-bold" role="alert">
+              <section className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-sm font-bold" role="alert">
                 {errors.general}
-              </div>
+              </section>
             )}
 
             <section className="flex flex-col gap-2">
@@ -68,7 +70,7 @@ export default function LoginView() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin / aprendiz / investigador"
-                className="w-full rounded-lg text-[#111b0e] dark:text-white border border-[#d5e7d0] dark:border-emerald-900/50 bg-[#f9fcf8] dark:bg-background-dark/50 h-12 p-4 text-base transition-all"
+                className="w-full rounded-lg text-[#111b0e] dark:text-white border border-[#d5e7d0] dark:border-emerald-900/50 bg-[#f9fcf8] dark:bg-background-dark/50 h-11 sm:h-12 p-3 sm:p-4 text-base transition-all"
               />
               {errors.email && <span className="text-sm text-red-600">{errors.email}</span>}
             </section>
@@ -98,16 +100,16 @@ export default function LoginView() {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center justify-center w-full bg-[#3dbd14] text-black font-black py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-1 uppercase tracking-wide disabled:opacity-70"
+              className="flex items-center justify-center w-full bg-[#3dbd14] text-black font-black py-2.5 sm:py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-1 uppercase tracking-wide disabled:opacity-70"
             >
               {loading ? 'Cargando...' : 'Iniciar Sesión'}
             </button>
             
-              <div className="relative flex items-center py-2">
-              <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
+              <section className="relative flex items-center py-2">
+              <section className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
               <span className="flex-shrink mx-4 text-slate-400 text-xs font-medium uppercase tracking-wider">continuar con</span>
-              <div className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></div>
-            </div>
+              <section className="flex-grow border-t border-[#eaf3e7] dark:border-emerald-900/30"></section>
+            </section>
 
             <section className="grid grid-cols-2 gap-4">
               
@@ -139,14 +141,22 @@ export default function LoginView() {
                   </span>
                 </button>
             </section>
-            <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-              ¿Olvidaste tu contraseña?
-            </p>
+            <section className="text-center text-sm text-slate-500 dark:text-slate-400">
+              <section class="flex items-center justify-between py-1">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="rounded border-[#d5e7d0] dark:border-emerald-800 text-primary focus:ring-primary h-4 w-4" type="checkbox" />
+                        <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Recordarme</span>
+                    </label>
+                    <a class="text-sm font-semibold text-primary hover:underline decoration-2 underline-offset-4" href="#">¿Olvidaste tu contraseña?</a>
+              </section>
+            </section>
           </form>
         </article>
       </main>
 
-      <Footer />
-    </div>
+      <section className="h-[10vh] min-h-[56px] flex-shrink-0">
+        <Footer />
+      </section>
+    </section>
   );
 }
