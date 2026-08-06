@@ -26,17 +26,8 @@ export default function RolesGestionUsuarios({
   const agregarRol = () => {
     if (!nuevoRol.trim()) return;
 
-    if (nombreEditado.trim() === rolViejo) {
-      setRolEditando(null);
-      setNombreEditado("");
-      return;
-    }
     if (
-      roles.some(
-        (rol) =>
-          rol.toLowerCase() === nombreEditado.trim().toLowerCase() &&
-          rol !== rolViejo,
-      )
+      roles.some((rol) => rol.toLowerCase() === nuevoRol.trim().toLowerCase())
     ) {
       alert("Ese rol ya existe");
       return;
@@ -48,6 +39,7 @@ export default function RolesGestionUsuarios({
     localStorage.setItem("roles", JSON.stringify(nuevosRoles));
 
     setNuevoRol("");
+    cerrarModal();
   };
 
   const eliminarRol = (rolEliminar) => {
@@ -69,6 +61,23 @@ export default function RolesGestionUsuarios({
   const guardarEdicion = (rolViejo) => {
     if (!nombreEditado.trim()) return;
 
+    if (nombreEditado.trim() === rolViejo) {
+      setRolEditando(null);
+      setNombreEditado("");
+      return;
+    }
+
+    if (
+      roles.some(
+        (rol) =>
+          rol.toLowerCase() === nombreEditado.trim().toLowerCase() &&
+          rol !== rolViejo,
+      )
+    ) {
+      alert("Ese rol ya existe");
+      return;
+    }
+
     const nuevosRoles = roles.map((rol) =>
       rol === rolViejo ? nombreEditado.trim() : rol,
     );
@@ -81,7 +90,6 @@ export default function RolesGestionUsuarios({
 
     setUsuarios(usuariosActualizados);
     setUsuariosFiltrados(usuariosActualizados);
-
     localStorage.setItem("usuarios", JSON.stringify(usuariosActualizados));
 
     setRoles(nuevosRoles);
