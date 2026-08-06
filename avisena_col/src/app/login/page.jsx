@@ -39,7 +39,7 @@ export default function LoginView() {
     <>
       <Header />
       <main className="min-h-screen flex-1 flex items-center justify-center px-4 py-12 bg-slate-50 dark:bg-[#071205]">
-        <article className="w-full max-w-[460px] bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
+        <article className="w-full max-w-115 bg-white dark:bg-[#1c2e17] rounded-2xl shadow-2xl border border-[#eaf3e7] dark:border-emerald-900/30 overflow-hidden">
           <header className="pt-10 px-8 text-center">
             <h1 className="text-[#111b0e] dark:text-white text-3xl font-black">Bienvenido</h1>
             <p className="text-slate-500 dark:text-slate-400 text-base mt-2">
